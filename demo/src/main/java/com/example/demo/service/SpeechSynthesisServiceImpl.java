@@ -18,7 +18,7 @@ public class SpeechSynthesisServiceImpl implements SpeechService {
     @Override
     public AudioEntity getAudioEntity(String message, String sessionId) throws TencentCloudSDKException {
 
-        Credential cred = new Credential("AKIDIVuMYSRdngpkPoorXy9VcU8VbVBamo6B", "71jS293pLmyuc3RbWBZAWbO7bqnbkjSv");
+        Credential cred = new Credential("", "");
         HttpProfile httpProfile = new HttpProfile();
         httpProfile.setEndpoint("tts.tencentcloudapi.com");
         ClientProfile clientProfile = new ClientProfile();
