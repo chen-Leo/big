@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>上传</title>
+</head>
+<body>
+<form id="uploadForm" enctype="multipart/form-data">
+    <input id="file" type="file" name="file"/>
+    <button id="upload" type="button" onclick="uploadImage()">上传</button>
+</form>
+<audio id="id1" controls="controls" autobuffer="autobuffer" autoplay="autoplay">
+</audio>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+    function uploadImage(){
+        $.ajax({
+            url: 'http://localhost:8080/get',
+            type: 'POST',
+            cache: false,
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false,
+            success:function (result){
+                if (result.code == 200){
+                    let audio = document.getElementById("id1");
+                    var a = result.message.audio
+                    // console.log(a)
+                    // var b = a.get('audio');
+                    audio.src="data:audio/wav;base64,"+a;
+                    return a
+                }else{
+                    alert("上传失败")
+                }
+            },
+            error:function (){
+                alert("服务器故障");
+            }
+        })
+    }
+</script>
+</body>
+</html>
