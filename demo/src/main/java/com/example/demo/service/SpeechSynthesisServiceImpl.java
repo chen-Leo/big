@@ -17,7 +17,7 @@ public class SpeechSynthesisServiceImpl implements SpeechService {
 
     @Override
     public AudioEntity getAudioEntity(String message, String sessionId) throws TencentCloudSDKException {
-
+         //要填入腾讯云的key和密钥
         Credential cred = new Credential("", "");
         HttpProfile httpProfile = new HttpProfile();
         httpProfile.setEndpoint("tts.tencentcloudapi.com");
